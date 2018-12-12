@@ -4,7 +4,7 @@ require_once 'dbconfig.php';
 if(isset($_POST['btnsave']))
 {
 $gameName = $_POST['game_name'];// game name
-$gameComment = $_POST['gameComment'];// game weight
+$gameComment = $_POST['gameComment'];// game gameComment
 
 $imgFile = $_FILES['gameImage']['name'];
 $tmp_dir = $_FILES['gameImage']['tmp_name'];
@@ -15,7 +15,7 @@ if(empty($gameName)){
 $error_message = "Please enter game name.";
 }
 else if(empty($gameComment)){
-$error_message = "Please enter game weight.";
+$error_message = "Please enter game gameComment.";
 }
 else if(empty($imgFile)){
 $error_message = "Please select image file.";
@@ -49,7 +49,7 @@ $error_message = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 // if no error occured, continue ....
 if(!isset($error_message))
 {
-$statement = $db->prepare('INSERT INTO games(boxerName,weight,boxerPic) VALUES(:gname, :gameComment, :gimg)');
+$statement = $db->prepare('INSERT INTO games(gameName,gameComment,gamePic) VALUES(:gname, :gameComment, :gimg)');
 $statement->bindParam(':gname',$gameName);
 $statement->bindParam(':gameComment',$gameComment);
 $statement->bindParam(':gimg',$gamePic);
@@ -74,7 +74,7 @@ $error_message = "error while inserting...";
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link href="styles.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body  background= "images/954616.jpg">
 <div class="container">
 <div class="page-header">
 <h1>Add a New game</h1>
@@ -98,7 +98,7 @@ else if(isset($successMSG)){
 ?>   
 
 <form method="post" enctype="multipart/form-data" class="form-horizontal">
-<table class="table table-bordered table-responsive micro">
+<table class="table table-bordered table-responsive micro" style="color: white">
 <tr>
 <td><label class="control-label">Game Name</label></td>
 <td><input class="form-control" type="text" name="game_name" placeholder="Enter Name" value="<?php echo $gameName; ?>" /></td>
