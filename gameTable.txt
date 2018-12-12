@@ -6,12 +6,11 @@ CREATE TABLE `games` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `games` (`gameID`, `gameName`, `gameComment`, `gamePic`) VALUES
-(1, 'Assassins', 'Odyssey', '895803.jpg'),
-(2, 'Need For Speed', 'Most Wanted', '641542.jpg'),
-(3, 'Naseem', 'Lightweight', '415321.jpg'),
-(4, 'Sugar Ray', 'Lightweight', '142077.jpg'),
-(5, 'Tyson', 'Heavyweight', '804047.jpg'),
-(6, 'Chris Ubank', 'Middleweight', '947996.jpg');
+(1, 'FIFA18', 'The GAME Begins!!!', '201896.jpg'),
+(2, 'Need For Speed', 'Payback', 'need-for-speed-payback.png'),
+(3, 'Unchartted 4', 'A Thief's End', '517874.jpg'),
+(4, 'Tomb Raider', 'An Ultimate Edition', '931658.jpg'),
+(5, 'Call of Duty', 'Ghost III', '572041.jpg');
 
 ALTER TABLE `games`
   ADD PRIMARY KEY (`gameID`);
