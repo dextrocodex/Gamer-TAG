@@ -1,7 +1,7 @@
 <?php
 require_once 'dbconfig.php';
 // Get gamess form the database
-$queryGames = "SELECT boxerID, boxerName, weight, boxerPic FROM games ORDER BY boxerID DESC";
+$queryGames = "SELECT gameID, gameName, gameComment, gamePic FROM games ORDER BY gameID DESC";
 $statement1 = $db->prepare($queryGames);
 $statement1->execute();
 $games = $statement1->fetchAll(PDO::FETCH_ASSOC);
@@ -40,12 +40,12 @@ $statement1->closeCursor();
 </tr>               
 <?php foreach ($games as $game) : ?> 
 <tr>
-<td><img src="images/<?php echo $game['boxerPic']; ?>" class="img-rounded" width="150px" height="150px" /></td>
-<td><p><?php echo $game['boxerName']; ?></p></td>
-<td><p><?php echo $game['weight']; ?></p></td>
+<td><img src="images/<?php echo $game['gamePic']; ?>" class="img-rounded" width="150px" height="150px" /></td>
+<td><p><?php echo $game['gameName']; ?></p></td>
+<td><p><?php echo $game['gameComment']; ?></p></td>
 <td><form action="delete_game.php" method="post">
 <input type="hidden" name="game_id"
-       value="<?php echo $game['boxerID']; ?>">
+       value="<?php echo $game['gameID']; ?>">
 <input type="submit" class="btn btn-danger" value="Delete">
 </form></td>
 </tr>
